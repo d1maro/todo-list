@@ -10,10 +10,38 @@ const taskPlace = document.querySelector(".todo__main");
 
 function inputHandler() {
   let taskText = inputTask.value;
-  console.log(taskText);
-  createTask();
+  createTask(taskText);
 }
 
-function createTask() {
-    
+function createTask(taskText) {
+  const task = document.createElement("div");
+  task.className = "main__task";
+
+  const checkbox = document.createElement("input");
+  checkbox.className = "task__checkbox";
+  checkbox.setAttribute("type", "checkbox");
+
+  const text = document.createElement("label");
+  text.className = "task__text";
+  text.textContent = taskText;
+
+  const link = document.createElement("a");
+  link.className = "task__link";
+  link.setAttribute("href", "#");
+
+  const cross = document.createElement("img");
+  cross.className = "task__cross";
+  cross.setAttribute("width", 16);
+  cross.setAttribute("height", 16);
+  cross.setAttribute("src", "./cross.svg");
+
+  task.append(checkbox);
+  task.append(text);
+  task.append(link);
+
+  link.append(cross);
+
+  taskPlace.append(task);
+
+  return task;
 }

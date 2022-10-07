@@ -86,7 +86,7 @@ h1 {
 
 .main__task {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 
   padding-bottom: 26px;
