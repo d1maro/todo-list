@@ -102,6 +102,10 @@ h1 {
   color: #54595e;
 }
 
+.main__task > input:checked + label {
+  text-decoration: line-through;
+}
+
 .todo__foot {
   display: flex;
   justify-content: space-between;
