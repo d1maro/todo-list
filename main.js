@@ -8,6 +8,22 @@ addTask.addEventListener("click", inputHandler);
 
 const taskPlace = document.querySelector(".todo__main");
 
+const removeButtons = document.querySelector(".todo__foot");
+removeButtons.addEventListener("click", removeHandler);
+
+// function removeHandler(event) {
+//   console.log(event.target.className);
+//   switch (event.target.className) {
+//     case ".foot__delete-all":
+//       deleteAll();
+//       break;
+//   }
+// }
+
+function deleteAll() {
+  taskPlace.innerHTML = "";
+}
+
 function inputHandler() {
   let taskText = inputTask.value;
   createTask(taskText);
