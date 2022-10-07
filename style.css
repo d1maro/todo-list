@@ -123,6 +123,11 @@ h1 {
   border-radius: 4px;
 }
 
+.foot__delete-complete:hover,
+.foot__delete-all:hover {
+  opacity: 90%;
+}
+
 .foot__delete-complete {
   background-color: #6c757d;
 }
