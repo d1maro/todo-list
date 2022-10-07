@@ -72,7 +72,6 @@ h1 {
 .todo__main {
   /* display: none; */
   padding-top: 24px;
-  padding-bottom: 32px;
 }
 
 .todo__main::before {
@@ -89,6 +88,8 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  padding-bottom: 26px;
 }
 
 .task__text {
@@ -99,4 +100,33 @@ h1 {
   letter-spacing: 0em;
   text-align: left;
   color: #54595e;
+}
+
+.todo__foot {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 18px;
+}
+
+.foot__delete-complete,
+.foot__delete-all {
+  padding: 10px 16px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+
+  border-radius: 4px;
+}
+
+.foot__delete-complete {
+  background-color: #6c757d;
+}
+
+.foot__delete-all {
+  background-color: #dc3545;
 }

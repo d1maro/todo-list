@@ -22,13 +22,24 @@
         </div>
         <div class="todo__main">
             <div class="main__task">
-                <input class="task__checkbox" type="checkbox">
-                <span class="task__text">Сделать удаление каждого элемента по крестику справа</span>
+                <input class="task__checkbox" id="task__checkbox" type="checkbox">
+                <label class="task__text" for="task__checkbox">Сделать удаление каждого элемента по крестику справа</label>
+                <img class="task__cross" src="./cross.svg" width="16" height="16" alt="">
+            </div>
+            <div class="main__task">
+                <input class="task__checkbox" id="task__checkbox" type="checkbox">
+                <label class="task__text" for="task__checkbox">Сделать удаление каждого элемента по крестику справа</label>
+                <img class="task__cross" src="./cross.svg" width="16" height="16" alt="">
+            </div>
+            <div class="main__task">
+                <input class="task__checkbox" id="task__checkbox" type="checkbox">
+                <label class="task__text" for="task__checkbox">Сделать удаление каждого элемента по крестику справа</label>
                 <img class="task__cross" src="./cross.svg" width="16" height="16" alt="">
             </div>
         </div>
         <div class="todo__foot">
-            
+            <input class="foot__delete-complete" type="button" value="Удалить завершенные">
+            <input class="foot__delete-all" type="button" value="Удалить все">
         </div>
     </main>
     <script src="./main.js"></script>
