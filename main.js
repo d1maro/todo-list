@@ -29,6 +29,12 @@ function createTask(taskText) {
   link.className = "task__link";
   link.setAttribute("href", "#");
 
+  link.addEventListener("click", taskDelete);
+
+  function taskDelete() {
+    link.parentElement.remove();
+  }
+
   const cross = document.createElement("img");
   cross.className = "task__cross";
   cross.setAttribute("width", 16);
