@@ -1,23 +1,24 @@
 "use strict";
 
-// const inputTask = document.querySelector(".todo__enter"); // переменная для задания текста задачи
-
 const addTask = document.querySelector(".todo__add"); // переменная для кнопки, которая добавляет задачу
-// addTask.addEventListener("click", inputHandler); // прослушка для кнопки, которая добавляет задачу
 
 const taskPlace = document.querySelector(".todo__main"); // место для задачи, родительский элемент
 
 const removeButtons = document.querySelector(".todo__foot");
-// removeButtons.addEventListener("click", removeHandler); // нижний блок с кнопками
 
 const removeComplete = document.querySelector(".foot__delete-complete"); // выбор кнопки для удаления завершенных задач
 
 const removeAll = document.querySelector(".foot__delete-all"); // выбор кнопки для удаления всех задач
 
-// function inputHandler() {
-//   let taskText = inputTask.value;
-//   createTask(taskText);
-// }
+(function main() {
+  // точка с запятой нужна, это IIFE. В этом случае она играет роль точки входа в наше приложение
+  if (localStorage.getItem("tasks")) {
+    // условие - локал сторедж должен быть не пустым
+    let arr = JSON.parse(localStorage.getItem("tasks")); // заносим в локал сторедж данные из массива
+    removeButtons.style.display = "flex"; // показываем нижнюю часть с кнопками
+    arr.forEach((elem) => renderTask(elem.status, elem.text)); // отрисовываем данные из массива
+  }
+})(); // форма записи для Immediately invoked function expression
 
 function createTask(state, taskText) {
   // функция для создания задачи
@@ -38,12 +39,6 @@ function createTask(state, taskText) {
   link.className = "task__link";
   link.setAttribute("href", "#");
 
-  // link.addEventListener("click", taskDelete);
-
-  // function taskDelete() {
-  //   link.parentElement.remove();
-  // }
-
   const cross = document.createElement("img");
   cross.className = "task__cross";
   cross.setAttribute("width", 16);
@@ -56,10 +51,12 @@ function createTask(state, taskText) {
 
   link.append(cross);
 
-  // taskPlace.append(task);
-
   return task;
 }
+
+function renderTask(state, text) {
+  taskPlace.append(createTask(state, text));
+} // вставляем в место для задачи созданный див
 
 function saveTask() {
   // функция сохраняет задачи в локалсторедж
@@ -80,20 +77,6 @@ function saveTask() {
   ).length; // получаем "длину" объекта
   return storageLength; // возвращаем "длину"
 }
-
-function renderTask(state, text) {
-  taskPlace.append(createTask(state, text));
-} // вставляем в место для задачи созданный див
-
-(function main() {
-  // точка с запятой нужна, это IIFE
-  if (localStorage.getItem("tasks")) {
-    // условие - локал сторедж должен быть не пустым
-    let arr = JSON.parse(localStorage.getItem("tasks")); // заносим в локал сторедж данные из массива
-    removeButtons.style.display = "flex"; // показываем нижнюю часть с кнопками
-    arr.forEach((elem) => renderTask(elem.status, elem.text)); // отрисовываем данные из массива
-  }
-})(); // форма записи для Immediately invoked function expression
 
 addTask.addEventListener("click", () => {
   // добавление задач
