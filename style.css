@@ -26,6 +26,7 @@ h1 {
 
   box-shadow: 0px 8px 35px 0px #00000029;
   border-radius: 4px;
+  background-color: #ffffff;
 }
 
 .todo__head {
@@ -107,7 +108,7 @@ h1 {
 }
 
 .todo__foot {
-  display: flex;
+  display: none;
   justify-content: space-between;
   padding-top: 18px;
 }
